@@ -25,9 +25,13 @@ sumVariables(8, "nyolc");
 sumVariables("word1", "word2");
 
 function loadEvent() {
-    console.log("loaded");
-    let rootElement = document.getElementById("root");
-    rootElement.insertAdjacentHTML("beforeend", "hello world");
+    const addButton = document.querySelector(".add-cat");
+    addButton.addEventListener("click", function () {
+        const catContainer = document.querySelector(".cat-container");
+        const now = new Date ().getTime(); 
+        const newCat = `<img src="https://cataas.com/cat?random=${now}" alt="" />`;
+        catContainer.insertAdjacentHTML("beforeend", newCat);
+    })
 }
 
-window.addEventListener("click", loadEvent);
+window.addEventListener("load", loadEvent);
